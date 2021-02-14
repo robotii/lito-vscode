@@ -1,0 +1,35 @@
+{
+  "name": "lito-vscode",
+  "displayName": "Lito Programming Language",
+  "description": "",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "lito",
+        "aliases": [
+          "Lito",
+          "lito"
+        ],
+        "extensions": [
+          ".lito"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lito",
+        "scopeName": "source.lito",
+        "path": "./syntaxes/lito.tmLanguage.json"
+      }
+    ]
+  },
+  "publisher": "robotii"
+}

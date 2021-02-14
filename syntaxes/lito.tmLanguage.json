@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Lito",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "begin": "'",
+      "end": "'",
+      "name": "string.quoted.single.lito",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.lito"
+        }
+      ]
+    },
+    {
+      "match": "\\b([A-Z][a-zA-Z0-9]*)\\b",
+      "name": "entity.name.class.lito"
+    },
+    {
+      "match": "#.*\n",
+      "name": "comment.line.lito"
+    },
+    {
+      "match": "\\b[0-9]+(\\.[0-9]+)?\\b",
+      "name": "constant.numeric.lito"
+    },
+    {
+      "match": "(\\:[A-Za-z][A-Za-z0-9]*)\\b",
+      "name": "variable.name.lito"
+    },
+    {
+      "match": "(@[a-z][A-Za-z0-9]*)\\b",
+      "name": "variable.other.lito"
+    },
+    {
+      "match": "(@?[a-z][A-Z_a-z0-9]*)\\s*(([+*/-]|\\|\\||\\|)?=^[=])",
+      "captures": {
+        "1": {
+          "name": "variable.other.assignment.lito"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.lito"
+        }
+      }
+    },
+    {
+      "match": "\\b_\\b",
+      "name": "variable.other.lito"
+    },
+    {
+      "match": "\\|.+\\|",
+      "name": "variable.parameter.lito"
+    },
+    {
+      "name": "keyword.operator.lito",
+      "match": "%|\\*|/|-|\\+|&|=|->|==|===|!=|!=="
+    },
+    {
+      "name": "variable.name.lito",
+      "begin": "`",
+      "end": "`"
+    },
+    {
+      "match": "\\b(def)\\s+([A-Za-z][A-Za-z0-9\\._!\\?]*|`.*`)?(\\s*)?[\\(|{]?",
+      "captures": {
+        "1": {
+          "name": "keyword.control.lito"
+        },
+        "2": {
+          "name": "entity.name.function.lito"
+        }
+      }
+    },
+    {
+      "match": "\\.([A-Za-z][A-Za-z0-9_!\\?]*)(\\s*)?",
+      "captures": {
+        "1": {
+          "name": "support.function.lito"
+        }
+      }
+    },
+    {
+      "match": "([A-Za-z][A-Za-z0-9_!\\?]*)(\\s*)?[\\(|\\{]",
+      "captures": {
+        "1": {
+          "name": "support.function.lito"
+        }
+      }
+    },
+    {
+      "match": "([A-Za-z][A-Za-z0-9_!\\?]*\\:)(\\s*)?",
+      "name": "support.constant.property-value.lito"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(go|print|println|sleep|send|metaclass|tap|property|get|set|require)\\b|nil\\?",
+          "name": "support.function.lito"
+        },
+        {
+          "name": "keyword.control.lito",
+          "match": "\\b(\\.new|true|false|nil|if|elsif|else|switch|case|default|return|self|super|while|yield|next|class|module|break|catch|finally|try|raise|include)\\b"
+        },
+        {
+          "name": "keyword.control.lito",
+          "match": "\\-\\>|\\<\\-|block!|block\\?|\\bdefer\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.lito",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.lito",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.lito"
+}
