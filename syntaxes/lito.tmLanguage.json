@@ -60,7 +60,7 @@
     },
     {
       "name": "keyword.operator.lito",
-      "match": "%|\\*|/|-|\\+|&|=|->|==|===|!=|!=="
+      "match": "%|\\*|/|-|\\+|&|=|->|==|===|!=|!==|\\|>"
     },
     {
       "name": "variable.name.lito",
