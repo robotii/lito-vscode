@@ -9,18 +9,14 @@
       "include": "#strings"
     },
     {
-      "begin": "'",
-      "end": "'",
-      "name": "string.quoted.single.lito",
-      "patterns": [
-        {
-          "match": "\\\\.",
-          "name": "constant.character.escape.lito"
-        }
-      ]
+      "include": "#sqstrings"
     },
     {
-      "match": "\\b([A-Z][a-zA-Z0-9]*)\\b",
+      "match": "\\|[^\\|]+\\|",
+      "name": "variable.name.lito"
+    },
+    {
+      "match": "\\b([A-Z][a-zA-Z0-9_]*)\\b",
       "name": "entity.name.class.lito"
     },
     {
@@ -32,11 +28,11 @@
       "name": "constant.numeric.lito"
     },
     {
-      "match": "(\\:[A-Za-z][A-Za-z0-9]*)\\b",
+      "match": "(\\:[A-Za-z][A-Za-z0-9_]*)\\b",
       "name": "variable.name.lito"
     },
     {
-      "match": "(@[a-z][A-Za-z0-9]*)\\b",
+      "match": "(@[a-z][A-Za-z0-9_]*)\\b",
       "name": "variable.other.lito"
     },
     {
@@ -55,12 +51,12 @@
       "name": "variable.other.lito"
     },
     {
-      "match": "\\|.+\\|",
-      "name": "variable.parameter.lito"
-    },
-    {
       "name": "keyword.operator.lito",
       "match": "%|\\*|/|-|\\+|&|=|->|==|===|!=|!==|\\|>"
+    },
+    {
+      "name": "meta.block.lito",
+      "match": "\\{|\\}|\\[|\\]"
     },
     {
       "name": "variable.name.lito",
@@ -108,11 +104,19 @@
         },
         {
           "name": "keyword.control.lito",
-          "match": "\\b(\\.new|true|false|nil|if|elsif|else|switch|case|default|return|self|super|while|yield|next|class|module|break|catch|finally|try|raise|include)\\b"
+          "match": "\\b(\\.new|if|elsif|else|switch|case|default|return|while|yield|next|class|module|break|catch|finally|try|raise|include)\\b"
         },
         {
           "name": "keyword.control.lito",
           "match": "\\-\\>|\\<\\-|block!|block\\?|\\bdefer\\b"
+        },
+        {
+          "match": "self|super",
+          "name": "variable.language.lito"
+        },
+        {
+          "match": "true|false|nil",
+          "name": "constant.language.lito"
         }
       ]
     },
@@ -122,8 +126,19 @@
       "end": "\"",
       "patterns": [
         {
-          "name": "constant.character.escape.lito",
-          "match": "\\\\."
+          "match": "\\\\.",
+          "name": "constant.character.escape.lito"
+        }
+      ]
+    },
+    "sqstrings": {
+      "begin": "'",
+      "end": "'",
+      "name": "string.quoted.single.lito",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.lito"
         }
       ]
     }
